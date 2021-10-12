@@ -25,13 +25,7 @@ export function playerInitialization(){
             out:false,
         };
     }
-
-}
-
-export function isOutOrNot(batsMan:string,scoreOutcome:number){
-    if(scoreOutcome === 7)
-    playerProperties[batsMan].out=true;
-    return playerProperties[batsMan].out
+    return playerProperties
 }
 
 export function setPlayerPropertyBasedOnScore(batsMan:string,scoreOutcome:number){
