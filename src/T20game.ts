@@ -27,3 +27,9 @@ function playerInitialization(){
 
 }
 
+export function isOutOrNot(batsMan:string,scoreOutcome:number){
+    playerInitialization();
+    if(scoreOutcome === 7)
+    playerProperties[batsMan].out=true;
+    return playerProperties[batsMan].out
+}
