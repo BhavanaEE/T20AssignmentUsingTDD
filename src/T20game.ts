@@ -11,6 +11,8 @@ let playerProperties:{
 
 }={};
 let wickets:number=0,teamScore:number=0;
+let batsMan:string=playersName[0];
+let runner:string=playersName[1];
 
 export function swapPlayers(batsMan:string,runner:string){
     [batsMan,runner]=[runner,batsMan]
@@ -39,5 +41,20 @@ export function setPlayerPropertyBasedOnScore(batsMan:string,scoreOutcome:number
         playerProperties[batsMan].score+=scoreOutcome;
         playerProperties[batsMan].noOfBallsPlayed++;
         teamScore+=scoreOutcome;
+    }
+}
+
+export function startGame(){
+    let over:number,ballsInEachOver:number,targetScore:number=40,scoreOutcome:number;
+    playerInitialization();
+    for(over=0;over<4;over++){
+        for(ballsInEachOver=1;ballsInEachOver<=6;ballsInEachOver++){
+            scoreOutcome=scoreOfPlayer(batsMan) as number;
+            setPlayerPropertyBasedOnScore(batsMan,scoreOutcome);
+            if(scoreOutcome !== 7 && scoreOutcome%2 === 1){
+                [batsMan,runner]=swapPlayers(runner,batsMan);
+            }
+        }
+        [batsMan,runner]=swapPlayers(runner,batsMan);
     }
 }
