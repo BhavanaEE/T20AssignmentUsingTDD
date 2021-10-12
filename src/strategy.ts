@@ -5,7 +5,7 @@ export function randomFunction(){
     return Math.floor(Math.random()*(100-0+1)+0);
 }
 
-function batsmanIndexGenerator(batsMan:string){
+export function batsmanIndexGenerator(batsMan:string){
     for(let i=0;i<4;i++){
         if(batsMan==playersName[i])
         return i;
