@@ -1,5 +1,4 @@
-import {swapPlayers} from "../src/T20game"
-import {isOutOrNot} from "../src/T20game"
+import {setPlayerPropertyBasedOnScore, swapPlayers} from "../src/T20game"
 import {playerInitialization} from "../src/T20game"
 
 test("Swapping players",()=>{
@@ -8,9 +7,12 @@ test("Swapping players",()=>{
     expect(received).toEqual(expected)
 })
 
-it("Function has to detect whether player is out or not",()=>{
-    let expected=true
-    playerInitialization();
-    let received=isOutOrNot("Rumrah",7)
-    expect(received).toBe(expected)
+describe("Player Properties",()=>{
+    it("Checking whether player is out or not",()=>{
+        let playerProperties=playerInitialization();
+        let expected=true;
+        setPlayerPropertyBasedOnScore("Kirat",7);
+        let received=playerProperties["Kirat"].out
+        expect(received).toBe(expected)
+    })
 })
