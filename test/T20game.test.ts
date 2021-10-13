@@ -1,4 +1,4 @@
-import {setPlayerPropertyBasedOnScore, swapPlayers} from "../src/T20game"
+import {setPlayerPropertyBasedOnScore, startGame, swapPlayers} from "../src/T20game"
 import {playerInitialization} from "../src/T20game"
 
 test("Swapping players",()=>{
@@ -34,4 +34,12 @@ test("If Nodhi serves 4 balls,then count of balls(4) should be added to Nodhi",(
     setPlayerPropertyBasedOnScore("Nodhi",4);
     let received=playerProperties["Nodhi"].noOfBallsPlayed;
     expect(received).toBe(expected);
+})
+
+it("Checking number of balls played by Kirat before and after the match",()=>{
+    let playerProperties=playerInitialization();
+    let expected=playerProperties["Kirat"].noOfBallsPlayed
+    startGame();
+    let received=playerProperties["Kirat"].noOfBallsPlayed
+    expect(received).not.toBe(expected);
 })
