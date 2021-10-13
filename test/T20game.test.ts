@@ -16,3 +16,11 @@ describe("Player Properties",()=>{
         expect(received).toBe(expected)
     })
 })
+
+it("Checking score of player when player hits six before and after a ball",()=>{
+    let playerProperties=playerInitialization();
+    let expected=6
+    setPlayerPropertyBasedOnScore("Nodhi",6);
+    let received=playerProperties["Nodhi"].score;
+    expect(received).toBe(expected);
+})
